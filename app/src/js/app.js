@@ -22,7 +22,6 @@ var ace = require('brace')
     , session = editor.getSession()
     , jsEditor = document.getElementById('js')
     , outputList = document.getElementById('outputList')
-    ,renderBtn = document.getElementById('renderBtn')
     ,iframe = document.getElementById('render')
 
 require('brace/mode/javascript')
@@ -59,6 +58,5 @@ var renderIframe = function() {
     iframeDoc.close();
 }
 
-renderBtn.addEventListener('click', renderIframe, false);
-
+editor.on("change", renderIframe)
 renderIframe()
