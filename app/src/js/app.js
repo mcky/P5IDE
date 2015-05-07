@@ -17,14 +17,23 @@ var baseCSS =
         'padding: 0;'+
     '}';
 
-var jsEditor = document.getElementById('js')
+var ace = require('brace')
+    , editor = ace.edit('js')
+    , session = editor.getSession()
+    , jsEditor = document.getElementById('js')
+    , outputList = document.getElementById('outputList')
     ,renderBtn = document.getElementById('renderBtn')
     ,iframe = document.getElementById('render')
 
+require('brace/mode/javascript')
+session.setMode('ace/mode/javascript')
+session.setUseWorker()
+editor.setOption("showPrintMargin", false)
+
 
 var prepareSource = function() {
-    var js = jsEditor.value
-        ,p5script = '<script src="./js/p5.js"></script>'
+    var js = editor.getValue()
+        ,p5script = '<script src="./public/js/p5.js"></script>'
         ,src = ''
         ,reg = /(createCanvas\(.*\))/
 

@@ -1,15 +1,31 @@
 <html>
 <head>
-	<link rel="stylesheet" href="./css/style.css">
+	<title>P5 IDE</title>
+	<link rel="stylesheet" href="./public/css/style.min.css">
 </head>
 
 <body>
 	<div class="panel" id="content">
-		<textarea id="js"></textarea>
 		<button id="renderBtn">Render</button>
+		<div id="js">
+			function setup() {
+				createCanvas(100,200)
+			}
+
+			function draw() {
+				fill(161,219,114)
+				noStroke()
+				for (var x = 40; x < 150; x+= 50) {
+					rect(x, 33, 20, 10);
+					rect(x, 45, 20, 15);
+					rect(x, 62, 47, 25);
+				}
+			}
+		</div>
 	</div>
 	<iframe class="panel" id="render"></iframe>
 
-	<script src="./js/app.js"></script>
+
+<script src="./public/js/app.min.js"></script>
 </body>
 </html>
